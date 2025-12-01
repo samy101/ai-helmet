@@ -39,6 +39,8 @@
 NOTE: 
 On newer version firmware of openmv IDE , syntax is changed . You may have to change the code according to the different syntax (You may refer examples related to machine learning model in openmv IDE on how to make necessary changes.). Code is tested and works for openmv IDE version 4.1.5 (Link to older releases : https://github.com/openmv/openmv-ide/releases/ )
 
+Reference:
+1. [Run OpenMV library or firmware](https://docs.edgeimpulse.com/hardware/deployments/run-openmv)
 
 
 
