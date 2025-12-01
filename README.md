@@ -4,7 +4,17 @@
 
 This Edge Impulse project implements a **real-time, on-device road sign detection and alerting system** using the **Arduino Nicla Vision**. The goal is to prototype an **“AI Helmet”** that can detect critical road signs and provide immediate alerts to two-wheeler riders.
 
+
+## ✨ Highlights
+
+* **True on-device Edge AI solution** – All detection and alerting runs locally on the Arduino Nicla Vision (TinyML + FOMO), with **no cloud or smartphone dependency** for core functionality.
+* **Tiny but powerful model** – FOMO MobileNetV2 0.35, **int8 quantized**, fits in ~**111 KB flash** and ~**283 KB RAM**, with an inference time of **approximately 51 ms per frame** (**19.6 fps!**), enabling smooth real-time detection.
+* **Helmet-mounted, rider-centric view** – Data is collected and inferred from a **helmet-like perspective**, so the model is trained on viewpoints that closely match real riding conditions.
+* **End-to-end Edge pipeline** – Fully integrated workflow: **on-device data collection → labeling & augmentation → FOMO training in Edge Impulse → OpenMV/MicroPython deployment → real-time alerts** on the helmet.
+* **Multi-modal safety alerts** – Combines **on-frame overlays**, **RGB LED color codes**, and a **buzzer** to instantly alert riders when critical signs (e.g., *Stop*, *Go Slow*, *No Parking*, *Speed Limit*) are detected.
+
 ---
+
 
 ## 📁 Repository Structure
 
@@ -13,12 +23,13 @@ This Edge Impulse project implements a **real-time, on-device road sign detectio
 ├── data-collection/       # Scripts for on-device image capture using Nicla Vision + push button
 ├── dataset/               # Dataset references, class info, and augmentation notes
 ├── deployment/
-│   └── OpenMV/            # MicroPython/OpenMV deployment script for on-device inference & alerts
+│   └── OpenMV/            # MicroPython/OpenMV deployment script and model file for on-device inference & alerts
 ├── images/                # Photos of the prototype and example detection outputs
 └── README.md              # Project overview and documentation (this file)
 ````
 
 ---
+
 
 ## 🚥 Problem Statement
 
