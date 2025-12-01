@@ -1,5 +1,10 @@
+## 🚀 Model Deployment
 
-## 🚀 Deployment
+If you are setting up Nicla Vision with OpenMV IDE for the first time, please follow this guide first:  
+[Getting Started with Nicla Vision and OpenMV IDE (Arduino Docs)](https://docs.arduino.cc/tutorials/nicla-vision/getting-started/)  
+
+You may also find this step-by-step lab very helpful (covers Arduino IDE, OpenMV firmware, and Edge Impulse integration):  
+[MLSysBook Lab – Nicla Vision Setup with OpenMV & Edge Impulse](https://www.mlsysbook.ai/contents/labs/arduino/nicla_vision/setup/setup.html)
 
 ### Steps to Run
 
@@ -27,20 +32,38 @@
      - Found using any standard IP scanner on your network, **or**
      - Read from the **OpenMV IDE serial monitor**, where the script prints the assigned IP after connecting to Wi-Fi.
 
+### Additional Info 
+
+1. The device blinks **blue** when connected to Wi-Fi.  
+2. The device blinks **yellow** when another device opens the IP address link to view the camera output.
 
 ![Real-Time Detection 2](../../images/real-time-detection3.png)
 
-*Figure 1: Demo 1 showing the detection of No parking sign*
+*Figure 1: Demo showing detection of a “No Parking” sign.*
 
-### Additional Info 
-1. Device blinks blue light when connected to WiFi.
-2. Device blinks yellow light when other device open the ip address link to view camera output.
+### 🔁 Additional Models
 
-NOTE: 
-On newer version firmware of openmv IDE , syntax is changed . You may have to change the code according to the different syntax (You may refer examples related to machine learning model in openmv IDE on how to make necessary changes.). Code is tested and works for openmv IDE version 4.1.5 (Link to older releases : https://github.com/openmv/openmv-ide/releases/ )
+Two additional TensorFlow Lite models are available in the `models/` directory:
 
-Reference:
-1. [Run OpenMV library or firmware](https://docs.edgeimpulse.com/hardware/deployments/run-openmv)
+- **Model1.tflite** – Contains **10 classes**, including *place-identification boards*.  
+- **Model2.tflite** – Contains **9 classes**, where the *place-identification* sign class is **absent**.
 
+The *place-identification* class was added in `Model1.tflite` to enable future work on **OCR-based reading of text on sign boards**.
 
+By default, the project uses `Model2.tflite` as the active model, stored as `trained.tflite` in the main directory.  
+If you want to switch to `Model1.tflite` (or any other model), simply:
 
+1. Copy the desired `.tflite` file into the main directory.  
+2. Rename it to `trained.tflite`.
+
+---
+
+**NOTE:**  
+On newer firmware versions of OpenMV IDE, some APIs and syntax may have changed. You may need to update parts of the code accordingly (you can refer to the latest machine learning examples in the OpenMV IDE).  
+The current code has been tested with **OpenMV IDE v4.1.5**.  
+Older releases are available here: https://github.com/openmv/openmv-ide/releases/
+
+**References:**  
+1. [Nicla Vision](https://docs.arduino.cc/hardware/nicla-vision/)
+2. [Run OpenMV library or firmware (Edge Impulse Docs)](https://docs.edgeimpulse.com/hardware/deployments/run-openmv)  
+3. [Nicla Vision Setup with Arduino, OpenMV, and Edge Impulse (MLSysBook Lab)](https://www.mlsysbook.ai/contents/labs/arduino/nicla_vision/setup/setup.html)
